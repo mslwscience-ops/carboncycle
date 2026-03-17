@@ -138,9 +138,9 @@
       <div class="game-wrapper">
         <div class="game-bar">
           <span class="game-bar-title">Carbon Cycle Game — play below, then record your turns</span>
-          <a class="game-link" href="https://view.genially.com/67b66a7a1ace3584c82f8bca/interactive-content-carbon-cycle-game" target="_blank">Open in new tab ↗</a>
+          <a class="game-link" href="https://view.genially.com/69b9cbee0d2208dfd033ae5c" target="_blank">Open in new tab ↗</a>
         </div>
-        <iframe src="https://view.genially.com/67b66a7a1ace3584c82f8bca/interactive-content-carbon-cycle-game" allowfullscreen></iframe>
+        <iframe src="https://view.genially.com/69b9cbee0d2208dfd033ae5c" allowfullscreen></iframe>
       </div>
       <div class="card">
         <div class="card-title">Record your journey</div>
@@ -158,20 +158,20 @@
       <div class="game-wrapper">
         <div class="game-bar">
           <span class="game-bar-title" id="tally-player-label">Recording turns</span>
-          <a class="game-link" href="https://view.genially.com/67b66a7a1ace3584c82f8bca/interactive-content-carbon-cycle-game" target="_blank">Open game in new tab ↗</a>
+          <a class="game-link" href="https://view.genially.com/69b9cbee0d2208dfd033ae5c" target="_blank">Open game in new tab ↗</a>
         </div>
-        <iframe src="https://view.genially.com/67b66a7a1ace3584c82f8bca/interactive-content-carbon-cycle-game" allowfullscreen></iframe>
+        <iframe src="https://view.genially.com/69b9cbee0d2208dfd033ae5c" allowfullscreen></iframe>
       </div>
       <div class="two-col">
         <div>
           <div class="card">
-            <div class="card-title">Log each turn</div>
-            <div class="turn-counter">Turns used: <strong id="turn-used">0</strong> / 15</div>
+            <div class="card-title">Record your turn</div>
             <div class="turn-grid" id="turn-grid"></div>
             <div class="label">Where did your carbon atom go this turn?</div>
             <select id="res-select"><option value="">— Select reservoir —</option></select>
-            <button class="btn btn-green" id="add-turn-btn" onclick="addTurn()">Add turn</button>
+            <button class="btn btn-green" id="add-turn-btn" onclick="addTurn()">Save turn</button>
             <button class="btn btn-outline" onclick="undoTurn()">Undo last turn</button>
+            <div class="turn-counter" style="margin-top:10px;">Turns used: <strong id="turn-used">0</strong> / 15</div>
           </div>
         </div>
         <div>
@@ -226,25 +226,17 @@
           <textarea id="q2" placeholder="Your answer…"></textarea>
         </div>
         <div class="q-block">
-          <div class="q-label"><span class="q-num">3.</span>Where did you get stuck?</div>
+          <div class="q-label"><span class="q-num">3.</span>Were you able to get out before turn 15?</div>
           <textarea id="q3" placeholder="Your answer…"></textarea>
         </div>
         <div class="q-block">
-          <div class="q-label"><span class="q-num">4.</span>Were you able to get out before turn 15?</div>
-          <textarea id="q4" placeholder="Your answer…"></textarea>
-        </div>
-        <div class="q-block">
-          <div class="q-label"><span class="q-num">5.</span>Think about the places where you were stuck. These are carbon sinks — places where carbon is stored for long periods of time. Why do you think you were stuck in that location?</div>
+          <div class="q-label"><span class="q-num">4.</span>Think about the places where you were stuck. These are carbon sinks — places where carbon is stored for long periods of time. Why do you think you were stuck in that location?</div>
           <div class="q-hint">Hint: think about how carbon is used for things like cellular respiration, in food, photosynthesis.</div>
-          <textarea id="q5" placeholder="Your answer…" style="min-height:90px;"></textarea>
-        </div>
-        <div class="q-block">
-          <div class="q-label"><span class="q-num">6.</span>What would happen if we included fossil fuels?</div>
-          <textarea id="q6" placeholder="Your answer…"></textarea>
+          <textarea id="q4" placeholder="Your answer…" style="min-height:90px;"></textarea>
         </div>
         <div class="q-block" style="margin-bottom:0;">
-          <div class="q-label"><span class="q-num">7.</span>How do you think adding in humans would change the results?</div>
-          <textarea id="q7" placeholder="Your answer…"></textarea>
+          <div class="q-label"><span class="q-num">5.</span>How do you think adding in humans would change the results?</div>
+          <textarea id="q5" placeholder="Your answer…"></textarea>
         </div>
       </div>
       <button class="btn btn-green" onclick="goToCompletion()">View my completion summary →</button>
@@ -276,12 +268,6 @@
             <div class="completion-pie-wrap"><canvas id="completion-pie"></canvas></div>
             <div class="legend-wrap" id="completion-legend" style="margin-top:8px;"></div>
           </div>
-        </div>
-
-        <!-- Flowchart -->
-        <div style="margin-bottom:16px;">
-          <div class="completion-section-title">My personal carbon cycle pathway</div>
-          <div id="completion-flowchart" style="overflow-x:auto;"></div>
         </div>
 
         <!-- Questions -->
@@ -328,10 +314,8 @@ const SINKS = [
 const QUESTIONS = [
   'Where did your carbon atom spend the most time?',
   'Was there anywhere that you got stuck more than one turn?',
-  'Where did you get stuck?',
   'Were you able to get out before turn 15?',
   'Think about the places where you were stuck. These are carbon sinks — places where carbon is stored for long periods of time. Why do you think you were stuck in that location?',
-  'What would happen if we included fossil fuels?',
   'How do you think adding in humans would change the results?',
 ];
 
@@ -430,7 +414,7 @@ function renderTally() {
 }
 
 function submitResults() {
-  const answers = [1,2,3,4,5,6,7].map(n=>(document.getElementById('q'+n)||{value:''}).value.trim());
+  const answers = [1,2,3,4,5].map(n=>(document.getElementById('q'+n)||{value:''}).value.trim());
   const data=loadData();
   // check if already submitted this session
   const alreadyIdx = data.findIndex(r=>r._sessionId===state._sessionId);
@@ -439,12 +423,11 @@ function submitResults() {
   saveData(data);
 
   // Send to Google Sheets if URL is configured
-  if(SHEETS_URL && SHEETS_URL !== 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+  if(SHEETS_URL && SHEETS_URL !== 'NOT_SET') {
     fetch(SHEETS_URL, {
       method: 'POST',
-      mode: 'no-cors',
       body: JSON.stringify(record),
-      headers: {'Content-Type': 'text/plain'}
+      headers: {'Content-Type': 'application/json'}
     }).catch(()=>{}); // silent fail — local save already succeeded
   }
 
@@ -475,7 +458,7 @@ function goToQuestions() {
 
 function goToCompletion() {
   // Save answers to state, re-submit with answers
-  state.answers = [1,2,3,4,5,6,7].map(n=>document.getElementById('q'+n).value.trim());
+  state.answers = [1,2,3,4,5].map(n=>document.getElementById('q'+n).value.trim());
   submitResults(); // updates with answers
 
   const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
@@ -521,9 +504,6 @@ function goToCompletion() {
       <div class="completion-q-answer">${a||'<em style="color:var(--faint)">No answer provided</em>'}</div>
     </div>`).join('');
 
-  // Flowchart
-  drawFlowchart(state.turns);
-
   showScreen('completion');
 }
 
@@ -535,102 +515,8 @@ function playAgain() {
   document.getElementById('submit-flash').classList.remove('show');
   document.getElementById('submit-section').style.display='none';
   document.getElementById('add-turn-btn').disabled=false;
-  [1,2,3,4,5,6,7].forEach(n=>document.getElementById('q'+n).value='');
+  [1,2,3,4,5].forEach(n=>document.getElementById('q'+n).value='');
   showScreen('setup');
-}
-
-function drawFlowchart(turns) {
-  // Build sequence of unique consecutive segments: {sinkIdx, count, startTurn}
-  const segments = [];
-  let i = 0;
-  while (i < turns.length) {
-    let j = i;
-    while (j < turns.length && turns[j] === turns[i]) j++;
-    segments.push({ idx: turns[i], count: j - i, startTurn: i + 1 });
-    i = j;
-  }
-
-  const BOX_W = 110, BOX_H = 48, HGAP = 52, VGAP = 60;
-  const PER_ROW = 5;
-  const rows = Math.ceil(segments.length / PER_ROW);
-  const svgW = Math.min(segments.length, PER_ROW) * (BOX_W + HGAP) + 20;
-  const svgH = rows * (BOX_H + VGAP) + 40;
-
-  // Compute x,y for each segment box
-  function boxPos(idx) {
-    const row = Math.floor(idx / PER_ROW);
-    const col = (row % 2 === 0) ? (idx % PER_ROW) : (PER_ROW - 1 - (idx % PER_ROW));
-    const x = 10 + col * (BOX_W + HGAP);
-    const y = 20 + row * (BOX_H + VGAP);
-    return { x, y, cx: x + BOX_W / 2, cy: y + BOX_H / 2 };
-  }
-
-  let shapes = '';
-  let arrows = '';
-  const ARROWHEAD = `<defs>
-    <marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#aaa"/>
-    </marker>
-  </defs>`;
-
-  segments.forEach((seg, si) => {
-    const s = SINKS[seg.idx];
-    const { x, y, cx, cy } = boxPos(si);
-    const isStuck = seg.count > 1;
-    const borderColor = isStuck ? s.color : s.color + '88';
-    const bgColor = s.color + '18';
-    const strokeW = isStuck ? 2 : 1;
-
-    // Box
-    shapes += `<g>
-      <rect x="${x}" y="${y}" width="${BOX_W}" height="${BOX_H}" rx="8"
-        fill="${bgColor}" stroke="${borderColor}" stroke-width="${strokeW}"/>
-      <text x="${cx}" y="${y + 17}" text-anchor="middle" font-family="DM Sans,sans-serif"
-        font-size="11" font-weight="500" fill="${s.color}">${s.name}</text>
-      <text x="${cx}" y="${y + 31}" text-anchor="middle" font-family="DM Sans,sans-serif"
-        font-size="10" fill="${s.color}88">Turn${seg.count > 1 ? 's' : ''} ${seg.startTurn}${seg.count > 1 ? '–' + (seg.startTurn + seg.count - 1) : ''}</text>`;
-
-    // Loop arrow if stuck
-    if (isStuck) {
-      const lx = x + BOX_W - 10;
-      shapes += `<path d="M${lx},${y+8} C${lx+22},${y-10} ${lx+22},${y+BOX_H+10} ${lx},${y+BOX_H-8}"
-        fill="none" stroke="${s.color}" stroke-width="1.5" marker-end="url(#ah)" stroke-dasharray="4,2"/>
-      <text x="${lx+18}" y="${y + BOX_H/2 + 4}" text-anchor="middle" font-family="DM Sans,sans-serif"
-        font-size="9" fill="${s.color}">×${seg.count}</text>`;
-    }
-    shapes += `</g>`;
-
-    // Arrow to next box
-    if (si < segments.length - 1) {
-      const nextPos = boxPos(si + 1);
-      const curRow = Math.floor(si / PER_ROW);
-      const nextRow = Math.floor((si + 1) / PER_ROW);
-      const { x: nx, y: ny, cx: ncx, cy: ncy } = nextPos;
-
-      if (curRow === nextRow) {
-        // Same row: horizontal arrow
-        const ltr = (curRow % 2 === 0);
-        const x1 = ltr ? x + BOX_W : x;
-        const x2 = ltr ? nx : nx + BOX_W;
-        const ay = cy;
-        arrows += `<line x1="${x1}" y1="${ay}" x2="${x2 + (ltr ? -6 : 6)}" y2="${ay}"
-          stroke="#aaa" stroke-width="1.5" marker-end="url(#ah)"/>`;
-      } else {
-        // Row wrap: go down from last box of row to first of next row
-        const x1 = cx;
-        const y1 = y + BOX_H;
-        const x2 = ncx;
-        const y2 = ny;
-        arrows += `<path d="M${x1},${y1} C${x1},${y1 + VGAP/2} ${x2},${y2 - VGAP/2} ${x2},${y2 - 6}"
-          fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#ah)"/>`;
-      }
-    }
-  });
-
-  document.getElementById('completion-flowchart').innerHTML =
-    `<svg width="${svgW}" height="${svgH}" xmlns="http://www.w3.org/2000/svg" style="min-width:300px;">
-      ${ARROWHEAD}${arrows}${shapes}
-    </svg>`;
 }
 
 // ---- DASHBOARD ----
