@@ -359,7 +359,7 @@ const TEACHER_CODE = 'carboncycle';
 // --------------------------------------------------------
 // GOOGLE SHEETS BACKEND
 // Paste your Apps Script Web App URL between the quotes below.
-const SHEETS_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwV_TbVnr446a6Ex6I1GzlNVPB-Nh7X9DQJV7JiI52wpmK-YSWmCgTfR98byM3Ne5SZYA/exec';
 // --------------------------------------------------------
 
 let state = {name:'', code:'', turns:[], tally:new Array(10).fill(0)};
@@ -580,7 +580,7 @@ function submitResults() {
   const record={name:state.name,code:state.code,turns:[...state.turns],tally:[...state.tally],answers,ts:Date.now(),_sessionId:state._sessionId};
   if(alreadyIdx>=0)data[alreadyIdx]=record;else data.push(record);
   saveData(data);
-  if(SHEETS_URL&&SHEETS_URL!=='PASTE_YOUR_APPS_SCRIPT_URL_HERE'){
+  if(SHEETS_URL&&SHEETS_URL!=='https://script.google.com/macros/s/AKfycbwV_TbVnr446a6Ex6I1GzlNVPB-Nh7X9DQJV7JiI52wpmK-YSWmCgTfR98byM3Ne5SZYA/exec'){
     // Use GET with data encoded in URL to bypass CORS entirely
     var encoded = encodeURIComponent(JSON.stringify(record));
     var img = new Image();
