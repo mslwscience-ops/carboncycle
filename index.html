@@ -515,7 +515,7 @@ function beginTally() {
   const classtime = document.getElementById('setup-classtime').value;
   const dateval = document.getElementById('setup-date').value;
   if(!classtime){alert('Please select your class time.');return;}
-  if(!dateval){alert('Please select today's date.');return;}
+  if(!dateval){alert("Please select a date.");return;}
   // Format date nicely: 2026-03-18 -> 3/18/2026
   const dp = dateval.split('-');
   const dateFormatted = parseInt(dp[1])+'/'+parseInt(dp[2])+'/'+dp[0];
