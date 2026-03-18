@@ -581,10 +581,27 @@ function submitResults() {
   if(alreadyIdx>=0)data[alreadyIdx]=record;else data.push(record);
   saveData(data);
   if(SHEETS_URL&&SHEETS_URL.indexOf("script.google.com")!==-1){
-    // Use GET with data encoded in URL to bypass CORS entirely
-    var encoded = encodeURIComponent(JSON.stringify(record));
-    var img = new Image();
-    img.src = SHEETS_URL + '?method=post&data=' + encoded;
+    // Submit via hidden form to bypass CORS and CSP
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = SHEETS_URL;
+    form.target = '_ccsubmit';
+    form.style.display = 'none';
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'data';
+    input.value = JSON.stringify(record);
+    form.appendChild(input);
+    var iframe = document.getElementById('_ccsubmit') || document.createElement('iframe');
+    iframe.name = '_ccsubmit';
+    iframe.id = '_ccsubmit';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+    form.submit();
+    setTimeout(function(){
+      if(form.parentNode) form.parentNode.removeChild(form);
+    }, 3000);
   }
   document.getElementById('submit-flash').classList.add('show');
   document.getElementById('submit-btn').disabled=true;
