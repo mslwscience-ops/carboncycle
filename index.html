@@ -30,19 +30,19 @@
   .card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:18px 20px;margin-bottom:14px;}
   .card-title{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:var(--text);margin-bottom:12px;}
   .label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:6px;}
-  .game-wrapper{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;margin-bottom:14px;}
-  .game-bar{background:var(--green-dark);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;}
+  .game-wrapper{background:var(--surface);overflow:hidden;margin-bottom:14px;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);width:100vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .game-bar{background:var(--green-dark);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;}
   .game-bar-title{color:#fff;font-size:13px;font-weight:500;}
   .game-link{color:rgba(255,255,255,0.7);font-size:12px;text-decoration:none;}
   .game-link:hover{color:#fff;}
-  iframe{width:100%;height:480px;border:none;display:block;}
-  input[type=text],select,textarea{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--bg);margin-bottom:10px;}
+  iframe{width:100%;height:600px;border:none;display:block;}
+  input[type=text],input[type=password],select,textarea{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--bg);margin-bottom:10px;}
   textarea{min-height:72px;resize:vertical;line-height:1.55;}
-  input[type=text]:focus,select:focus,textarea:focus{outline:none;border-color:var(--green);}
+  input[type=text]:focus,input[type=password]:focus,select:focus,textarea:focus{outline:none;border-color:var(--green);}
   .turn-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-bottom:10px;}
   .turn-pip{height:36px;border-radius:7px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;text-align:center;padding:2px;color:var(--faint);}
   .turn-pip.filled{border-color:transparent;}
-  .turn-counter{font-size:13px;color:var(--muted);margin-bottom:10px;}
+  .turn-counter{font-size:13px;color:var(--muted);margin-top:10px;}
   .turn-counter strong{color:var(--green);}
   .tally-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);}
   .tally-row:last-child{border-bottom:none;}
@@ -58,6 +58,7 @@
   .btn-outline{background:none;border:1px solid var(--border);color:var(--text);width:100%;margin-top:8px;}
   .btn-outline:hover{background:var(--bg);}
   .alert-green{background:var(--green-light);color:var(--green-text);border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;line-height:1.5;margin-bottom:12px;}
+  .alert-red{background:#FCEBEB;color:#A32D2D;border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;margin-top:8px;display:none;}
   .setup-note{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;border-left:3px solid var(--green);padding-left:12px;}
   .q-block{margin-bottom:16px;}
   .q-label{font-size:14px;color:var(--text);line-height:1.55;margin-bottom:6px;}
@@ -67,8 +68,6 @@
   .legend-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
   .legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);}
   .legend-swatch{width:9px;height:9px;border-radius:2px;display:inline-block;}
-
-  /* COMPLETION / SCREENSHOT SCREEN */
   .completion-screen{background:var(--surface);border-radius:var(--radius);border:2px solid var(--green);padding:24px;margin-bottom:14px;}
   .completion-header{text-align:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
   .completion-header h2{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--green-dark);margin-bottom:4px;}
@@ -86,12 +85,12 @@
   .completion-q-label{font-size:11px;font-weight:500;color:var(--muted);margin-bottom:3px;}
   .completion-q-answer{font-size:13px;color:var(--text);line-height:1.5;background:var(--bg);border-radius:6px;padding:8px 10px;}
   .completion-pie-wrap{position:relative;height:200px;}
-  .screenshot-hint{text-align:center;font-size:13px;color:var(--muted);margin-bottom:14px;padding:10px;background:var(--green-light);border-radius:var(--radius-sm);color:var(--green-text);}
+  .screenshot-hint{text-align:center;font-size:13px;margin-bottom:14px;padding:10px;background:var(--green-light);border-radius:var(--radius-sm);color:var(--green-text);}
 
-  /* DASHBOARD */
+  /* DASHBOARD & TEACHER SHARED */
   .code-row{display:flex;gap:8px;margin-bottom:14px;}
   .code-row input{margin-bottom:0;flex:1;}
-  .code-row .btn{white-space:nowrap;padding:9px 18px;}
+  .code-row .btn{white-space:nowrap;padding:9px 18px;width:auto;margin-top:0;}
   .metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
   .metric{background:var(--bg);border-radius:var(--radius-sm);padding:12px 14px;}
   .metric-val{font-size:24px;font-weight:500;color:var(--text);}
@@ -101,18 +100,27 @@
   .bar-track{height:18px;background:var(--bg);border-radius:4px;overflow:hidden;}
   .bar-fill{height:100%;border-radius:4px;transition:width 0.5s ease;}
   .bar-pct{font-size:12px;font-weight:500;text-align:right;}
-  .sub-list{max-height:260px;overflow-y:auto;}
+  .sub-list{max-height:320px;overflow-y:auto;}
   .sub-item{padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted);}
   .sub-item:last-child{border-bottom:none;}
   .sub-name{font-weight:500;color:var(--text);}
   .empty{text-align:center;padding:2rem;color:var(--faint);font-size:14px;}
   .dash-chart-wrap{position:relative;height:280px;}
-  .clear-link{font-size:12px;color:var(--muted);background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;float:right;}
+  .clear-link{font-size:12px;color:var(--muted);background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;}
   .success-flash{display:none;}
   .success-flash.show{display:block;}
   .responses-toggle{font-size:12px;color:var(--blue);background:none;border:none;cursor:pointer;padding:2px 0;margin-top:4px;}
   .responses-detail{display:none;margin-top:6px;font-size:12px;color:var(--muted);line-height:1.7;}
   .responses-detail.open{display:block;}
+
+  /* TEACHER LOCK SCREEN */
+  .lock-screen{max-width:360px;margin:3rem auto;text-align:center;}
+  .lock-icon{font-size:36px;margin-bottom:16px;}
+  .lock-screen h2{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;margin-bottom:8px;}
+  .lock-screen p{font-size:13px;color:var(--muted);margin-bottom:20px;}
+  .loading-bar{height:3px;background:var(--green-light);border-radius:2px;margin-bottom:14px;overflow:hidden;display:none;}
+  .loading-bar-fill{height:100%;background:var(--green);border-radius:2px;animation:loadpulse 1.2s infinite;}
+  @keyframes loadpulse{0%{width:0%;}50%{width:70%;}100%{width:100%;}}
 </style>
 </head>
 <body>
@@ -124,7 +132,7 @@
   </div>
   <div class="tab-pills">
     <button class="tab-pill active" onclick="switchTab('student',event)">Student</button>
-    <button class="tab-pill" onclick="switchTab('dashboard',event)">Dashboard</button>
+    <button class="tab-pill" onclick="switchTab('teacher',event)">Teacher</button>
   </div>
 </div>
 
@@ -133,7 +141,6 @@
   <!-- ===================== STUDENT PANEL ===================== -->
   <div id="panel-student" class="panel active">
 
-    <!-- SETUP SCREEN -->
     <div id="screen-setup" class="screen active">
       <div class="game-wrapper">
         <div class="game-bar">
@@ -147,13 +154,21 @@
         <p class="setup-note">Play the game above. After each turn, come back here and select the reservoir you visited. The tally updates automatically. You have exactly 15 turns.</p>
         <div class="two-col">
           <div><div class="label">Your name</div><input type="text" id="setup-name" placeholder="First and last name"></div>
-          <div><div class="label">Class code</div><input type="text" id="setup-code" placeholder="e.g. Period1"></div>
+          <div><div class="label">Class time</div>
+            <select id="setup-classtime">
+              <option value="">— Select your class time —</option>
+              <option value="9:00">9:00</option>
+              <option value="10:00">10:00</option>
+              <option value="12:30">12:30</option>
+              <option value="Teacher test">Teacher test</option>
+            </select>
+          </div>
         </div>
+        <div><div class="label">Today's date</div><input type="date" id="setup-date" style="margin-bottom:10px;"></div>
         <button class="btn btn-green" onclick="beginTally()">Start recording my turns</button>
       </div>
     </div>
 
-    <!-- TALLY SCREEN -->
     <div id="screen-tally" class="screen">
       <div class="game-wrapper">
         <div class="game-bar">
@@ -171,7 +186,7 @@
             <select id="res-select"><option value="">— Select reservoir —</option></select>
             <button class="btn btn-green" id="add-turn-btn" onclick="addTurn()">Save turn</button>
             <button class="btn btn-outline" onclick="undoTurn()">Undo last turn</button>
-            <div class="turn-counter" style="margin-top:10px;">Turns used: <strong id="turn-used">0</strong> / 15</div>
+            <div class="turn-counter">Turns used: <strong id="turn-used">0</strong> / 15</div>
           </div>
         </div>
         <div>
@@ -184,7 +199,7 @@
       <div id="submit-section" style="display:none;">
         <div class="card">
           <div class="card-title">All 15 turns complete!</div>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Submit your turns to the class dashboard, then answer the reflection questions below.</p>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Submit your turns, then answer the reflection questions.</p>
           <button class="btn btn-blue" id="submit-btn" onclick="submitResults()">Submit to class dashboard</button>
           <div class="success-flash alert-green" id="submit-flash" style="margin-top:10px;">Submitted!</div>
           <button class="btn btn-green" style="margin-top:8px;" onclick="goToQuestions()">Continue to reflection questions →</button>
@@ -192,12 +207,9 @@
       </div>
     </div>
 
-    <!-- QUESTIONS SCREEN -->
     <div id="screen-questions" class="screen">
       <div class="card">
         <div class="card-title">Your carbon journey — reflection</div>
-
-        <!-- Student's own pie chart -->
         <div class="two-col" style="margin-bottom:20px;">
           <div>
             <div class="label">Your turn distribution</div>
@@ -209,20 +221,16 @@
             <div id="student-tally-display"></div>
           </div>
         </div>
-
-        <!-- Warning note -->
         <div style="border-left:3px solid #BA7517;background:#FAEEDA;border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:18px;">
           <div style="font-size:13px;font-weight:500;color:#633806;margin-bottom:3px;">Remember — getting stuck is part of the science!</div>
           <div style="font-size:13px;color:#854F0B;line-height:1.55;">In real life, carbon atoms can remain trapped in a single reservoir for hundreds, thousands, or even millions of years. If you spent most or all of your 15 turns in one place, that is an accurate reflection of how carbon actually behaves in deep ocean sediments, dissolved deep water, or other long-term sinks.</div>
         </div>
-
-        <!-- Questions -->
         <div class="q-block">
           <div class="q-label"><span class="q-num">1.</span>Where did your carbon atom spend the most time?</div>
           <textarea id="q1" placeholder="Your answer…"></textarea>
         </div>
         <div class="q-block">
-          <div class="q-label"><span class="q-num">2.</span>Was there anywhere that you got stuck more than one turn? What was the name of that location?</div>
+          <div class="q-label"><span class="q-num">2.</span>Was there anywhere that you got stuck more than one turn?</div>
           <textarea id="q2" placeholder="Your answer…"></textarea>
         </div>
         <div class="q-block">
@@ -242,18 +250,14 @@
       <button class="btn btn-green" onclick="goToCompletion()">View my completion summary →</button>
     </div>
 
-    <!-- COMPLETION / SCREENSHOT SCREEN -->
     <div id="screen-completion" class="screen">
-      <div class="screenshot-hint">Take a screenshot of this entire page to submit in Classkick. Make sure your name, turn log, pie chart, and answers are all visible before screenshotting.  I need the data from your 15 turns AND the REFLECTION QUESTIONS.</div>
-
+      <div class="screenshot-hint">Take a screenshot of this entire page to submit in Classkick. Make sure your name, turn log, pie chart, and answers are all visible before screenshotting.</div>
       <div class="completion-screen" id="completion-card">
         <div class="completion-header">
           <h2>Carbon Cycle Game — Complete</h2>
           <div class="completion-meta" id="completion-meta"></div>
         </div>
-
         <div class="completion-grid">
-          <!-- Left: turns + tally -->
           <div>
             <div class="completion-section-title">15-turn log</div>
             <div class="completion-turn-grid" id="completion-turns"></div>
@@ -262,19 +266,15 @@
               <div id="completion-tally"></div>
             </div>
           </div>
-          <!-- Right: pie chart -->
           <div>
             <div class="completion-section-title">Where I spent my time</div>
             <div class="completion-pie-wrap"><canvas id="completion-pie"></canvas></div>
             <div class="legend-wrap" id="completion-legend" style="margin-top:8px;"></div>
           </div>
         </div>
-
-        <!-- Questions -->
         <div class="completion-section-title">Reflection questions</div>
         <div id="completion-questions"></div>
       </div>
-
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
         <button class="btn btn-outline" style="width:auto;margin-top:0;" onclick="showScreen('questions')">← Back to questions</button>
         <button class="btn btn-outline" style="width:auto;margin-top:0;" onclick="playAgain()">Start over</button>
@@ -283,17 +283,49 @@
 
   </div><!-- /panel-student -->
 
-  <!-- ===================== DASHBOARD PANEL ===================== -->
-  <div id="panel-dashboard" class="panel">
-    <div class="card">
-      <div class="card-title">Class dashboard</div>
-      <div class="code-row">
-        <input type="text" id="dash-code" placeholder="Enter class code (e.g. Period1)…" onkeydown="if(event.key==='Enter')loadDashboard()">
-        <button class="btn btn-green" style="width:auto;margin-top:0;" onclick="loadDashboard()">View</button>
-      </div>
-      <div id="dash-content"><div class="empty">Enter a class code above to view results</div></div>
+  <!-- ===================== TEACHER PANEL ===================== -->
+  <div id="panel-teacher" class="panel">
+
+    <!-- LOCK SCREEN -->
+    <div id="teacher-lock" class="lock-screen">
+      <div class="lock-icon">🔒</div>
+      <h2>Teacher dashboard</h2>
+      <p>Enter your teacher code to access class results from Google Sheets.</p>
+      <input type="password" id="teacher-code-input" placeholder="Teacher code" onkeydown="if(event.key==='Enter')checkTeacherCode()">
+      <button class="btn btn-green" onclick="checkTeacherCode()">Unlock</button>
+      <div class="alert-red" id="teacher-code-error">Incorrect code — try again.</div>
     </div>
-  </div>
+
+    <!-- TEACHER DASHBOARD (hidden until unlocked) -->
+    <div id="teacher-dashboard" style="display:none;">
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <div class="card-title" style="margin-bottom:0;">Class results</div>
+          <button class="btn btn-outline" style="width:auto;margin-top:0;font-size:12px;padding:6px 14px;" onclick="lockTeacher()">Lock</button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-bottom:14px;align-items:end;">
+          <div>
+            <div class="label" style="margin-bottom:4px;">Class time</div>
+            <select id="teacher-class-code" style="margin-bottom:0;">
+              <option value="">— All times —</option>
+              <option value="9:00">9:00</option>
+              <option value="10:00">10:00</option>
+              <option value="12:30">12:30</option>
+              <option value="Teacher test">Teacher test</option>
+            </select>
+          </div>
+          <div>
+            <div class="label" style="margin-bottom:4px;">Date</div>
+            <input type="date" id="teacher-date" style="margin-bottom:0;">
+          </div>
+          <button class="btn btn-green" style="width:auto;margin-top:0;white-space:nowrap;padding:9px 16px;" onclick="loadTeacherDashboard()">Load from Sheets</button>
+        </div>
+        <div class="loading-bar" id="teacher-loading"><div class="loading-bar-fill"></div></div>
+        <div id="teacher-content"><div class="empty">Enter a class code above to load results from Google Sheets</div></div>
+      </div>
+    </div>
+
+  </div><!-- /panel-teacher -->
 
 </div><!-- /main -->
 
@@ -320,19 +352,26 @@ const QUESTIONS = [
 ];
 
 const STORAGE_KEY = 'ccgame_v6';
+const TEACHER_CODE = 'carboncycle';
 
 // --------------------------------------------------------
 // GOOGLE SHEETS BACKEND
 // Paste your Apps Script Web App URL between the quotes below.
-// Follow Part 2 of the hosting guide to get this URL.
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwV_TbVnr446a6Ex6I1GzlNVPB-Nh7X9DQJV7JiI52wpmK-YSWmCgTfR98byM3Ne5SZYA/exec';
+const SHEETS_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
 // --------------------------------------------------------
+
 let state = {name:'', code:'', turns:[], tally:new Array(10).fill(0)};
 let studentPieChart = null;
 let completionPieChart = null;
-let dashPieChart = null;
+let teacherPieChart = null;
 
-// Build reservoir select
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function(){
+  const today = new Date().toISOString().split('T')[0];
+  const d = document.getElementById('setup-date');
+  if(d) d.value = today;
+});
+
 const sel = document.getElementById('res-select');
 SINKS.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=s.name;sel.appendChild(o);});
 
@@ -344,7 +383,6 @@ function switchTab(tab, e) {
   if(e) e.target.classList.add('active');
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+tab).classList.add('active');
-  if(tab==='dashboard') loadDashboard();
 }
 
 function showScreen(name) {
@@ -352,25 +390,149 @@ function showScreen(name) {
   document.getElementById('screen-'+name).classList.add('active');
 }
 
+// ---- TEACHER AUTH ----
+function checkTeacherCode() {
+  const val = document.getElementById('teacher-code-input').value.trim();
+  if(val === TEACHER_CODE) {
+    document.getElementById('teacher-lock').style.display='none';
+    document.getElementById('teacher-dashboard').style.display='block';
+    document.getElementById('teacher-code-error').style.display='none';
+  } else {
+    document.getElementById('teacher-code-error').style.display='block';
+    document.getElementById('teacher-code-input').value='';
+  }
+}
+
+function lockTeacher() {
+  document.getElementById('teacher-lock').style.display='block';
+  document.getElementById('teacher-dashboard').style.display='none';
+  document.getElementById('teacher-code-input').value='';
+  document.getElementById('teacher-content').innerHTML='<div class="empty">Enter a class code above to load results from Google Sheets</div>';
+  if(teacherPieChart){teacherPieChart.destroy();teacherPieChart=null;}
+}
+
+// ---- TEACHER DASHBOARD (loads from Google Sheets) ----
+function loadTeacherDashboard() {
+  const classtime = document.getElementById('teacher-class-code').value;
+  const dateval = document.getElementById('teacher-date').value;
+  if(!classtime && !dateval){alert('Please select a class time or date.');return;}
+  let code = '';
+  if(classtime && dateval){
+    const dp = dateval.split('-');
+    const dateFormatted = parseInt(dp[1])+'/'+parseInt(dp[2])+'/'+dp[0];
+    code = classtime + ' — ' + dateFormatted;
+  } else if(classtime){
+    code = classtime;
+  } else {
+    const dp = dateval.split('-');
+    code = parseInt(dp[1])+'/'+parseInt(dp[2])+'/'+dp[0];
+  }
+
+  const loading = document.getElementById('teacher-loading');
+  const content = document.getElementById('teacher-content');
+  loading.style.display='block';
+  content.innerHTML='<div class="empty">Loading from Google Sheets…</div>';
+  if(teacherPieChart){teacherPieChart.destroy();teacherPieChart=null;}
+
+  const url = SHEETS_URL + '?code=' + encodeURIComponent(code);
+  fetch(url)
+    .then(r=>r.json())
+    .then(rows=>{
+      loading.style.display='none';
+      if(!rows||rows.length===0){
+        content.innerHTML='<div class="empty">No submissions found for "'+code+'"</div>';
+        return;
+      }
+      renderTeacherDashboard(rows, code, content);
+    })
+    .catch(err=>{
+      loading.style.display='none';
+      content.innerHTML='<div class="empty" style="color:#A32D2D;">Could not load from Google Sheets. Check your Apps Script URL and deployment.<br><br><small>'+err+'</small></div>';
+    });
+}
+
+function renderTeacherDashboard(rows, code, el) {
+  // rows from sheet: [Timestamp, Name, ClassCode, Turns, t0..t9, q0..q4]
+  const totals = new Array(10).fill(0);
+  rows.forEach(r=>{
+    for(let i=0;i<10;i++) totals[i] += parseFloat(r[4+i])||0;
+  });
+  const grand = totals.reduce((a,b)=>a+b,0);
+  const filteredSinks = SINKS.map((s,i)=>({...s,total:totals[i]})).filter(s=>s.total>0);
+  const nonZero = filteredSinks.length;
+
+  el.innerHTML=`
+    <div class="metric-row">
+      <div class="metric"><div class="metric-val">${rows.length}</div><div class="metric-label">Students</div></div>
+      <div class="metric"><div class="metric-val">${grand}</div><div class="metric-label">Total turns</div></div>
+      <div class="metric"><div class="metric-val">${nonZero}</div><div class="metric-label">Reservoirs visited</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
+      <div>
+        <div class="label" style="margin-bottom:10px;">Turn distribution — ${code||'All classes'}</div>
+        ${SINKS.map((s,i)=>{const pct=grand>0?(totals[i]/grand*100):0;return`
+          <div class="bar-row">
+            <div class="bar-name" title="${s.name}">${s.name}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct.toFixed(1)}%;background:${s.color};"></div></div>
+            <div class="bar-pct" style="color:${s.color};">${pct.toFixed(1)}%</div>
+          </div>`;}).join('')}
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:10px;">Class pie chart — ${code||'All classes'}</div>
+        <div class="dash-chart-wrap"><canvas id="teacher-pie-canvas"></canvas></div>
+        <div class="legend-wrap" style="margin-top:8px;">${filteredSinks.map(s=>`<span class="legend-item"><span class="legend-swatch" style="background:${s.color}"></span>${s.name}</span>`).join('')}</div>
+      </div>
+    </div>
+    <div class="label" style="margin-bottom:8px;">Individual submissions</div>
+    <div class="sub-list">
+      ${[...rows].reverse().map((r,idx)=>{
+        const name=r[1]||'Anonymous';
+        const detail=SINKS.map((s,i)=>(parseFloat(r[4+i])||0)>0?`${s.name}(${r[4+i]})`:'').filter(Boolean).join(', ');
+        const uid='tr-'+idx;
+        const qHtml=[0,1,2,3,4].map(qi=>r[14+qi]?`<div><strong>${qi+1}.</strong> ${r[14+qi]}</div>`:'').filter(Boolean).join('');
+        return`<div class="sub-item">
+          <span class="sub-name">${name}</span> &middot; ${r[0]||''}<br>
+          <span style="font-size:12px;">${detail}</span>
+          ${qHtml?`<button class="responses-toggle" onclick="toggleResp('${uid}')">Show responses ▾</button><div class="responses-detail" id="${uid}">${qHtml}</div>`:''}
+        </div>`;
+      }).join('')}
+    </div>`;
+
+  if(teacherPieChart){teacherPieChart.destroy();teacherPieChart=null;}
+  const ctx=document.getElementById('teacher-pie-canvas');
+  if(ctx&&filteredSinks.length>0){
+    teacherPieChart=new Chart(ctx,{
+      type:'pie',
+      data:{labels:filteredSinks.map(s=>s.name),datasets:[{data:filteredSinks.map(s=>s.total),backgroundColor:filteredSinks.map(s=>s.color),borderWidth:2,borderColor:'#fff'}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const pct=(c.parsed/grand*100).toFixed(1);return` ${c.label}: ${c.parsed} turns (${pct}%)`;}}}}}
+    });
+  }
+}
+
+// ---- STUDENT FUNCTIONS ----
 function beginTally() {
-  state.name = document.getElementById('setup-name').value.trim()||'Anonymous';
-  state.code = document.getElementById('setup-code').value.trim()||'General';
-  state.turns = [];
-  state.tally = new Array(10).fill(0);
-  document.getElementById('tally-player-label').textContent = state.name+' · '+state.code;
-  renderTurnGrid(); renderTally();
-  showScreen('tally');
+  state.name=document.getElementById('setup-name').value.trim()||'Anonymous';
+  const classtime = document.getElementById('setup-classtime').value;
+  const dateval = document.getElementById('setup-date').value;
+  if(!classtime){alert('Please select your class time.');return;}
+  if(!dateval){alert('Please select today's date.');return;}
+  // Format date nicely: 2026-03-18 -> 3/18/2026
+  const dp = dateval.split('-');
+  const dateFormatted = parseInt(dp[1])+'/'+parseInt(dp[2])+'/'+dp[0];
+  state.code = classtime + ' — ' + dateFormatted;
+  state.turns=[];state.tally=new Array(10).fill(0);
+  document.getElementById('tally-player-label').textContent=state.name+' · '+state.code;
+  renderTurnGrid();renderTally();showScreen('tally');
 }
 
 function addTurn() {
-  if(state.turns.length>=15) return;
-  const v = document.getElementById('res-select').value;
-  if(v==='') return;
-  const idx = parseInt(v);
-  state.turns.push(idx);
-  state.tally[idx]++;
+  if(state.turns.length>=15)return;
+  const v=document.getElementById('res-select').value;
+  if(v==='')return;
+  const idx=parseInt(v);
+  state.turns.push(idx);state.tally[idx]++;
   document.getElementById('res-select').value='';
-  renderTurnGrid(); renderTally();
+  renderTurnGrid();renderTally();
   if(state.turns.length>=15){
     document.getElementById('add-turn-btn').disabled=true;
     document.getElementById('submit-section').style.display='block';
@@ -379,26 +541,22 @@ function addTurn() {
 }
 
 function undoTurn() {
-  if(state.turns.length===0) return;
-  const last = state.turns.pop();
-  state.tally[last]--;
+  if(state.turns.length===0)return;
+  const last=state.turns.pop();state.tally[last]--;
   document.getElementById('add-turn-btn').disabled=false;
   document.getElementById('submit-section').style.display=state.turns.length>=15?'block':'none';
-  renderTurnGrid(); renderTally();
+  renderTurnGrid();renderTally();
 }
 
 function renderTurnGrid() {
   document.getElementById('turn-used').textContent=state.turns.length;
-  const grid=document.getElementById('turn-grid');
-  grid.innerHTML='';
+  const grid=document.getElementById('turn-grid');grid.innerHTML='';
   for(let i=0;i<15;i++){
     const d=document.createElement('div');
     d.className='turn-pip'+(i<state.turns.length?' filled':'');
     if(i<state.turns.length){
       const s=SINKS[state.turns[i]];
-      d.style.background=s.color+'22';
-      d.style.borderColor=s.color+'55';
-      d.style.color=s.color;
+      d.style.background=s.color+'22';d.style.borderColor=s.color+'55';d.style.color=s.color;
       d.textContent=s.name.split(' ')[0];
     } else {d.textContent=i+1;}
     grid.appendChild(d);
@@ -414,36 +572,25 @@ function renderTally() {
 }
 
 function submitResults() {
-  const answers = [1,2,3,4,5].map(n=>(document.getElementById('q'+n)||{value:''}).value.trim());
+  const answers=[1,2,3,4,5].map(n=>(document.getElementById('q'+n)||{value:''}).value.trim());
   const data=loadData();
-  // check if already submitted this session
-  const alreadyIdx = data.findIndex(r=>r._sessionId===state._sessionId);
-  const record = {name:state.name, code:state.code, turns:[...state.turns], tally:[...state.tally], answers, ts:Date.now(), _sessionId:state._sessionId};
-  if(alreadyIdx>=0) data[alreadyIdx]=record; else data.push(record);
+  const alreadyIdx=data.findIndex(r=>r._sessionId===state._sessionId);
+  const record={name:state.name,code:state.code,turns:[...state.turns],tally:[...state.tally],answers,ts:Date.now(),_sessionId:state._sessionId};
+  if(alreadyIdx>=0)data[alreadyIdx]=record;else data.push(record);
   saveData(data);
-
-  // Send to Google Sheets if URL is configured
-  if(SHEETS_URL && SHEETS_URL !== 'NOT_SET') {
-    fetch(SHEETS_URL, {
-      method: 'POST',
-      body: JSON.stringify(record),
-      headers: {'Content-Type': 'text/plain'}
-    }).catch(()=>{}); // silent fail — local save already succeeded
+  if(SHEETS_URL&&SHEETS_URL!=='PASTE_YOUR_APPS_SCRIPT_URL_HERE'){
+    fetch(SHEETS_URL,{method:'POST',mode:'no-cors',body:JSON.stringify(record),headers:{'Content-Type':'text/plain'}}).catch(()=>{});
   }
-
   document.getElementById('submit-flash').classList.add('show');
   document.getElementById('submit-btn').disabled=true;
 }
 
 function goToQuestions() {
-  // Init session id
-  if(!state._sessionId) state._sessionId = Date.now().toString(36);
+  if(!state._sessionId)state._sessionId=Date.now().toString(36);
   showScreen('questions');
-  // Render student pie
-  const filtered = SINKS.map((s,i)=>({...s,total:state.tally[i]})).filter(s=>s.total>0);
+  const filtered=SINKS.map((s,i)=>({...s,total:state.tally[i]})).filter(s=>s.total>0);
   if(studentPieChart){studentPieChart.destroy();studentPieChart=null;}
-  const ctx=document.getElementById('student-pie');
-  studentPieChart=new Chart(ctx,{
+  studentPieChart=new Chart(document.getElementById('student-pie'),{
     type:'pie',
     data:{labels:filtered.map(s=>s.name),datasets:[{data:filtered.map(s=>s.total),backgroundColor:filtered.map(s=>s.color),borderWidth:2,borderColor:'#fff'}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const pct=(c.parsed/15*100).toFixed(0);return ` ${c.label}: ${c.parsed} turns (${pct}%)`;}}}}},
@@ -457,37 +604,23 @@ function goToQuestions() {
 }
 
 function goToCompletion() {
-  // Save answers to state, re-submit with answers
-  state.answers = [1,2,3,4,5].map(n=>document.getElementById('q'+n).value.trim());
-  submitResults(); // updates with answers
-
+  state.answers=[1,2,3,4,5].map(n=>document.getElementById('q'+n).value.trim());
+  submitResults();
   const today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   document.getElementById('completion-meta').textContent=state.name+' · '+state.code+' · '+today;
-
-  // Turn log pips
-  const tg=document.getElementById('completion-turns');
-  tg.innerHTML='';
+  const tg=document.getElementById('completion-turns');tg.innerHTML='';
   state.turns.forEach((t,i)=>{
-    const s=SINKS[t];
-    const d=document.createElement('div');
+    const s=SINKS[t];const d=document.createElement('div');
     d.className='completion-pip';
-    d.style.background=s.color+'22';
-    d.style.color=s.color;
-    d.style.border='1px solid '+s.color+'44';
-    d.innerHTML=`<span style="font-size:8px;font-weight:500;color:${s.muted};">${i+1}</span><span style="font-size:9px;">${s.name.split(' ')[0]}</span>`;
-    d.style.flexDirection='column';
-    d.style.lineHeight='1.2';
+    d.style.cssText=`background:${s.color}22;color:${s.color};border:1px solid ${s.color}44;flex-direction:column;line-height:1.2;`;
+    d.innerHTML=`<span style="font-size:8px;font-weight:500;">${i+1}</span><span style="font-size:9px;">${s.name.split(' ')[0]}</span>`;
     tg.appendChild(d);
   });
-
-  // Tally
   document.getElementById('completion-tally').innerHTML=SINKS.map((s,i)=>`
     <div class="completion-tally-row">
       <div class="completion-tally-name"><div class="dot" style="background:${s.color}"></div><span>${s.name}</span></div>
       <div class="completion-tally-num" style="color:${state.tally[i]>0?s.color:'var(--faint)'};">${state.tally[i]}</div>
     </div>`).join('');
-
-  // Pie
   const filtered=SINKS.map((s,i)=>({...s,total:state.tally[i]})).filter(s=>s.total>0);
   if(completionPieChart){completionPieChart.destroy();completionPieChart=null;}
   completionPieChart=new Chart(document.getElementById('completion-pie'),{
@@ -496,14 +629,11 @@ function goToCompletion() {
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const pct=(c.parsed/15*100).toFixed(0);return ` ${c.label}: ${c.parsed} turns (${pct}%)`;}}}}},
   });
   document.getElementById('completion-legend').innerHTML=filtered.map(s=>`<span class="legend-item"><span class="legend-swatch" style="background:${s.color}"></span>${s.name}</span>`).join('');
-
-  // Questions
   document.getElementById('completion-questions').innerHTML=state.answers.map((a,i)=>`
     <div class="completion-q-block">
       <div class="completion-q-label">${i+1}. ${QUESTIONS[i]}</div>
       <div class="completion-q-answer">${a||'<em style="color:var(--faint)">No answer provided</em>'}</div>
     </div>`).join('');
-
   showScreen('completion');
 }
 
@@ -519,78 +649,7 @@ function playAgain() {
   showScreen('setup');
 }
 
-// ---- DASHBOARD ----
-function loadDashboard() {
-  const code=document.getElementById('dash-code').value.trim();
-  const all=loadData();
-  const data=code?all.filter(r=>r.code.toLowerCase()===code.toLowerCase()):all;
-  const el=document.getElementById('dash-content');
-  if(data.length===0){el.innerHTML='<div class="empty">No submissions found'+(code?' for "'+code+'"':'')+'</div>';return;}
-
-  const totals=new Array(10).fill(0);
-  data.forEach(r=>r.tally.forEach((v,i)=>totals[i]+=v));
-  const grand=totals.reduce((a,b)=>a+b,0);
-  const nonZero=SINKS.filter((_,i)=>totals[i]>0);
-  const filteredSinks=SINKS.map((s,i)=>({...s,total:totals[i]})).filter(s=>s.total>0);
-
-  el.innerHTML=`
-    <div class="metric-row">
-      <div class="metric"><div class="metric-val">${data.length}</div><div class="metric-label">Students</div></div>
-      <div class="metric"><div class="metric-val">${grand}</div><div class="metric-label">Total turns</div></div>
-      <div class="metric"><div class="metric-val">${nonZero.length}</div><div class="metric-label">Reservoirs visited</div></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
-      <div>
-        <div class="label" style="margin-bottom:10px;">Turn distribution</div>
-        ${SINKS.map((s,i)=>{const pct=grand>0?(totals[i]/grand*100):0;return`<div class="bar-row">
-          <div class="bar-name" title="${s.name}">${s.name}</div>
-          <div class="bar-track"><div class="bar-fill" style="width:${pct.toFixed(1)}%;background:${s.color};"></div></div>
-          <div class="bar-pct" style="color:${s.color};">${pct.toFixed(1)}%</div>
-        </div>`;}).join('')}
-      </div>
-      <div>
-        <div class="label" style="margin-bottom:10px;">Class pie chart</div>
-        <div class="dash-chart-wrap"><canvas id="dash-pie"></canvas></div>
-        <div class="legend-wrap" style="margin-top:8px;">${filteredSinks.map(s=>`<span class="legend-item"><span class="legend-swatch" style="background:${s.color}"></span>${s.name}</span>`).join('')}</div>
-      </div>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
-      <div class="label" style="margin-bottom:0;">Individual submissions</div>
-      <button class="clear-link" onclick="clearCode('${code}')">Clear ${code||'all'}</button>
-    </div>
-    <div class="sub-list">
-      ${[...data].reverse().map((r,idx)=>{
-        const detail=r.tally.map((v,i)=>v>0?`${SINKS[i].name}(${v})`:'').filter(Boolean).join(', ');
-        const uid='resp-'+idx;
-        const qHtml=r.answers&&r.answers.some(a=>a)?r.answers.map((a,qi)=>a?`<div><strong>${qi+1}.</strong> ${a}</div>`:'').filter(Boolean).join(''):'';
-        return`<div class="sub-item">
-          <span class="sub-name">${r.name}</span> &middot; ${r.code}<br>
-          <span style="font-size:12px;">${detail}</span>
-          ${qHtml?`<button class="responses-toggle" onclick="toggleResp('${uid}')">Show responses ▾</button><div class="responses-detail" id="${uid}">${qHtml}</div>`:''}
-        </div>`;
-      }).join('')}
-    </div>
-  `;
-
-  if(dashPieChart){dashPieChart.destroy();dashPieChart=null;}
-  const ctx=document.getElementById('dash-pie');
-  if(ctx){
-    dashPieChart=new Chart(ctx,{
-      type:'pie',
-      data:{labels:filteredSinks.map(s=>s.name),datasets:[{data:filteredSinks.map(s=>s.total),backgroundColor:filteredSinks.map(s=>s.color),borderWidth:2,borderColor:'#fff'}]},
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const pct=(c.parsed/grand*100).toFixed(1);return` ${c.label}: ${c.parsed} turns (${pct}%)`;}}}}}
-    });
-  }
-}
-
-function toggleResp(id){const el=document.getElementById(id);el.classList.toggle('open');}
-
-function clearCode(code){
-  if(!confirm('Clear submissions for "'+(code||'all')+'"?')) return;
-  const all=loadData();
-  saveData(code?all.filter(r=>r.code.toLowerCase()!==code.toLowerCase()):[]);
-  loadDashboard();
-}
+function toggleResp(id){document.getElementById(id).classList.toggle('open');}
 </script>
 </body>
 </html>
