@@ -30,7 +30,8 @@
   .card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:18px 20px;margin-bottom:14px;}
   .card-title{font-family:'DM Serif Display',serif;font-size:17px;font-weight:400;color:var(--text);margin-bottom:12px;}
   .label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);margin-bottom:6px;}
-  .game-wrapper{background:var(--surface);overflow:hidden;margin-bottom:14px;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);width:100vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .game-wrapper{background:var(--surface);overflow:hidden;margin-bottom:0;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);width:100vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .tally-bar{margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);width:100vw;background:var(--bg);border-bottom:1px solid var(--border);padding:16px max(16px,calc(50vw - 450px)) 0;margin-bottom:14px;}
   .game-bar{background:var(--green-dark);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;}
   .game-bar-title{color:#fff;font-size:13px;font-weight:500;}
   .game-link{color:rgba(255,255,255,0.7);font-size:12px;text-decoration:none;}
@@ -177,7 +178,7 @@
         </div>
         <iframe src="https://view.genially.com/69b9cbee0d2208dfd033ae5c" allowfullscreen></iframe>
       </div>
-      <div class="two-col">
+      <div class="tally-bar"><div class="two-col">
         <div>
           <div class="card">
             <div class="card-title">Record your turn</div>
@@ -196,6 +197,7 @@
           </div>
         </div>
       </div>
+      </div></div><!-- /tally-bar -->
       <div id="submit-section" style="display:none;">
         <div class="card">
           <div class="card-title">All 15 turns complete!</div>
@@ -640,7 +642,7 @@ function goToCompletion() {
 function playAgain() {
   state={name:'',code:'',turns:[],tally:new Array(10).fill(0)};
   document.getElementById('setup-name').value='';
-  document.getElementById('setup-code').value='';
+  document.getElementById('setup-classtime').value='';
   document.getElementById('submit-btn').disabled=false;
   document.getElementById('submit-flash').classList.remove('show');
   document.getElementById('submit-section').style.display='none';
