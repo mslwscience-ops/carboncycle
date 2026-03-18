@@ -580,7 +580,7 @@ function submitResults() {
   const record={name:state.name,code:state.code,turns:[...state.turns],tally:[...state.tally],answers,ts:Date.now(),_sessionId:state._sessionId};
   if(alreadyIdx>=0)data[alreadyIdx]=record;else data.push(record);
   saveData(data);
-  if(SHEETS_URL&&SHEETS_URL!=='https://script.google.com/macros/s/AKfycbzcBWVNZ7Kzr1QsYM0y_xKWm5FOIbPvHPBnICYOyEMbH30mLGhtOxUF-FPEDOk4suQYHA/exec'){
+  if(SHEETS_URL&&SHEETS_URL.indexOf("script.google.com")!==-1){
     // Use GET with data encoded in URL to bypass CORS entirely
     var encoded = encodeURIComponent(JSON.stringify(record));
     var img = new Image();
